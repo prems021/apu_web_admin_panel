@@ -1,0 +1,41 @@
+
+
+<div class="gc">
+    <mat-card class="card">
+      <mat-card-header>
+        <mat-card-title>Login to Hornbill 9.0 </mat-card-title> <br>
+      </mat-card-header>  <br>
+      <mat-card-content>
+        <form  [formGroup]="loginForm" >
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>User Name</mat-label>
+            <input matInput placeholder="Username" formControlName="USER_NAME" name="username" required>
+          </mat-form-field>
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Password</mat-label>
+            <input matInput formControlName="PASSWORD" type="password" placeholder="Password"  name="password" required>
+          </mat-form-field>
+        </form>
+  
+          <button  (click)=onFormSubmit(loginForm.value)  color="primary" mat-raised-button *ngIf="push_disabled_enter ==1" type="submit" class="btn btn-primary btn-block">Sign in</button>
+  
+          <button  *ngIf="push_disabled_enter == 2" class="btn-block btn pull-right" style="color: green;">
+              <i class="fa fa-spinner fa-spin"></i>Logging...
+            </button>
+  
+            <button [disabled]="true" *ngIf="push_disabled_enter == 3" class="btn btn-block btn-warning pull-right" 
+            type="button"><span class="glyphicon glyphicon-ok"></span>  Invalid User </button>
+  
+            <button [disabled]="true" *ngIf="push_disabled_enter == 4" class="btn btn-block btn-warning pull-right" 
+            type="button"><span class="glyphicon glyphicon-ok"></span>  User Offline </button>
+  
+          <div class="sign-up" style="color: grey;">
+              Don't have an account? <a href="#" style="color: rgb(235, 177, 177);">Create One</a>
+          </div>
+  
+      
+      </mat-card-content>
+    </mat-card>
+  </div>
+  
+

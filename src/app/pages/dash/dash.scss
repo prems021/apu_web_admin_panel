@@ -1,0 +1,17 @@
+.tile-card {
+  border: none;
+  border-radius: 10px;
+  background-color: #f8f9fa;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.2);
+}
+.tile-card img {
+  max-width: 100%;
+  height: auto;
+}
+.image-parent {
+  max-width: 40px;
+}
+
+.spacer {
+  flex: 1;
+}

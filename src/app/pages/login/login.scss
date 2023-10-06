@@ -1,0 +1,36 @@
+.gc {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-image: url(https://img.freepik.com/free-vector/abstract-geometric-wireframe-background_52683-59421.jpg?w=996&t=st=1695234597~exp=1695235197~hmac=bb65c7c2dbb3cebeb1e2e30d098eb47fc76310b61225249d51f01204d7e97b32);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100% 100%;
+  //   background-color: #f5f5f5;
+}
+
+.container {
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.8
+  ); /* Semi-transparent white background for the card */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.5);
+}
+
+.container mat-card {
+  background: none; /* Remove card background */
+  box-shadow: none; /* Remove card box shadow */
+}
+
+.mat-card-content {
+  text-align: center;
+}
+
+.full-width {
+  width: 100%;
+}

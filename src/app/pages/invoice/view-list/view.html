@@ -1,0 +1,139 @@
+
+
+
+ <mat-toolbar color="primary" class="mb-2">  Hb9.0
+
+  <span class="spacer"></span>
+  <button mat-icon-button> 
+    <mat-icon>home</mat-icon>
+  </button>
+
+  <button mat-icon-button>
+    <mat-icon>notifications</mat-icon>
+  </button>
+  <button mat-icon-button>
+    <mat-icon>account_circle</mat-icon>
+  </button>
+
+  <div  style="float:right;">
+   
+      <input (keyup)="applyFilter($event)" class="search-input" matInput placeholder="Search">
+
+ 
+  </div>
+  
+
+</mat-toolbar>  
+<!-- 
+<mat-toolbar color="primary" class="mb-2">
+  <span class="spacer"></span>
+  <button mat-icon-button> 
+    <mat-icon>home</mat-icon>
+  </button>
+  <button mat-icon-button>
+    <mat-icon>notifications</mat-icon>
+  </button>
+  <button mat-icon-button>
+    <mat-icon>account_circle</mat-icon>
+  </button>
+  <div class="search-container">
+    <mat-form-field class="search-input">
+      <input matInput placeholder="Search">
+      <button mat-button  matSuffix mat-icon-button aria-label="Clear" (click)="applyFilter($event)">
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+  </div>
+</mat-toolbar> -->
+
+
+<div class="ally" *ngIf="!loaded"> <app-loader> </app-loader> </div>
+
+<div *ngIf="loaded" class="container">
+  <div class="row">
+    <div *ngFor="let item of filteredData" class="col-lg-3 col-md-6 col-sm-12">
+      <div class="card mb-1">
+        <div class="card-body">
+          <h2 class="card-title" style="color:navy;"> Invoice No : {{ item.invoice_no }}</h2> <h4 style="font-family: ui-monospace;
+          font-weight: bold;
+          color: indigo;"> {{item.customer_name}} </h4>
+                 <label class="card-text">{{ item.type }}</label> &nbsp; &nbsp;
+                 <label class="card-text"> {{item.invoice_date}} </label> &nbsp; &nbsp;
+
+                 <label class="card-text"> Amt : 4300 </label>
+
+                 
+
+          <!-- Add more data as needed -->
+        </div>
+        <div class="card-footer">
+          <!-- Add card actions (buttons, links) here -->
+          <label style="
+          font-size: larger;
+          font-weight: 600;
+          padding: 6px;
+          color: firebrick;
+      "> uid : {{ item.u_id }} </label>
+          <button class="btn btn-primary" style="float:right;">View</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+<!-- 
+  <table mat-table [dataSource]="dataSource" matSort class="mat-table">
+
+    
+
+
+    
+    <ng-container matColumnDef="u_id">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>UID</th>
+      <td mat-cell *matCellDef="let row">{{ row.u_id }}</td>
+    </ng-container>
+
+    
+    <ng-container matColumnDef="type">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Type</th>
+      <td mat-cell *matCellDef="let row">{{ row.type }}</td>
+    </ng-container>
+
+    
+    <ng-container matColumnDef="invoice_no">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Invoice No</th>
+      <td mat-cell *matCellDef="let row">{{ row.invoice_no }}</td>
+    </ng-container>
+
+      <ng-container matColumnDef="customer_name">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Name</th>
+      <td mat-cell *matCellDef="let row">{{ row.customer_name }}</td>
+    </ng-container>
+
+      <ng-container matColumnDef="invoice_date">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Invoice Date</th>
+      <td mat-cell *matCellDef="let row">{{ row.invoice_date }}</td>
+    </ng-container>
+
+
+    
+    <ng-container matColumnDef="view">
+      <th mat-header-cell *matHeaderCellDef>View</th>
+      <td mat-cell *matCellDef="let row">
+        <button mat-button (click)="viewInvoice(row)">View</button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+
+  <mat-paginator [pageSizeOptions]="[10, 25, 50]" [pageSize]="pageSize"></mat-paginator>
+</div> -->
