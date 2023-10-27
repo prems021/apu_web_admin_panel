@@ -19,6 +19,6 @@ export class DashComponent implements OnInit {
     private toastr: ToastrService,
     private ps: NgxPermissionsService,
   ) {}
-
+  jwt_token: string = 'GDEE';
   ngOnInit(): void {}
 }

@@ -44,7 +44,7 @@
               <div class="col-md-6">
                 <div class="card-footer d-flex ">
                   <small class="text-muted">
-                    <a  routerLink="/view-invoices" matTooltip="View invoices" 
+                    <a  [routerLink]="['/view-invoices', jwt_token, 24]" matTooltip="View invoices" 
                      style="float: right;cursor: pointer;    text-decoration: none;"   data-toggle="modal"  >
                      <i class="fa fa-eye" aria-hidden="true"></i> View   </a>
                   </small>

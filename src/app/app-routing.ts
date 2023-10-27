@@ -12,7 +12,7 @@ const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'dash', component: DashComponent },
-  { path: 'view-invoices', component: View_Invoice_list },
+  { path: 'view-invoices/:token/:type', component: View_Invoice_list },
   { path: 'reprint/:uid', component: LoginComponent },
   { path: '**', redirectTo: '/login' },
 ];

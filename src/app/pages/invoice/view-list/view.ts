@@ -10,7 +10,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { view_invoices } from '../../../services/model';
 @Component({
   selector: 'app-view-invoice-bills',
@@ -31,6 +31,7 @@ export class View_Invoice_list implements OnInit {
   dataSource = new MatTableDataSource<view_invoices>(null); // Replace YourDataInterface with your actual data structure
   displayedColumns: string[] = ['u_id', 'type', 'invoice_no', 'view'];
   pageSize = 10;
+  jwt_token : string = 'SkdkkkfkFFSSTT33d';
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
@@ -38,11 +39,16 @@ export class View_Invoice_list implements OnInit {
   constructor(
     private api: ApiService,
     private rs: Router,
+    private ar: ActivatedRoute,
     private cdr: ChangeDetectorRef,
   ) {}
 
   ngOnInit(): void {
     this.get_bills();
+
+    this.ar.paramMap.subscribe((params: ParamMap) => {
+      console.log(params);
+    });
   }
 
   get_bills() {
