@@ -32,7 +32,7 @@ import { LoginComponent } from './pages/login/login';
 import { ToastrModule } from 'ngx-toastr';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { DashComponent } from './pages/dash/dash';
-import { View_Invoice_list } from './pages/invoice/view-list/view';
+import { New_Invoice } from './pages/invoice/new/new';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { LoaderComponent } from './shared/loader/loader';
@@ -43,7 +43,7 @@ import { LoaderComponent } from './shared/loader/loader';
     LoginComponent,
     LoaderComponent,
     DashComponent,
-    View_Invoice_list,
+    New_Invoice,
   ],
   imports: [
     BrowserModule,

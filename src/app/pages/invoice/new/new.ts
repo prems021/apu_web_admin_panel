@@ -7,17 +7,18 @@ import {
 } from '@angular/core';
 import { ApiService } from '../../../services/api.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
-import { MatTableDataSource } from '@angular/material/table';
-import { MatPaginator } from '@angular/material/paginator';
-import { MatSort } from '@angular/material/sort';
+
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
 import { view_invoices } from '../../../services/model';
+import * as CryptoJS from 'crypto-js';
+import { CookieService } from 'ngx-cookie-service';
+
 @Component({
-  selector: 'app-view-invoice-bills',
-  templateUrl: './view.html',
-  styleUrls: ['./view.scss'],
+  selector: 'app-new-invoice',
+  templateUrl: './new.html',
+  styleUrls: ['./new.scss'],
 })
-export class View_Invoice_list implements OnInit {
+export class New_Invoice implements OnInit {
   loaded: boolean = false;
   mData: view_invoices[] = [];
   filteredData: view_invoices[] = [];
@@ -28,31 +29,36 @@ export class View_Invoice_list implements OnInit {
     { name: 'B2B', op: 3 },
   ];
 
-  dataSource = new MatTableDataSource<view_invoices>(null); // Replace YourDataInterface with your actual data structure
-  displayedColumns: string[] = ['u_id', 'type', 'invoice_no', 'view'];
-  pageSize = 10;
-  jwt_token : string = 'SkdkkkfkFFSSTT33d';
-
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-  @ViewChild(MatSort) sort: MatSort;
-
   constructor(
     private api: ApiService,
     private rs: Router,
     private ar: ActivatedRoute,
     private cdr: ChangeDetectorRef,
+    private cookieService: CookieService,
   ) {}
 
   ngOnInit(): void {
     this.get_bills();
 
-    this.ar.paramMap.subscribe((params: ParamMap) => {
-      console.log(params);
+    // this.ar.paramMap.subscribe((params: ParamMap) => {
+    //   console.log(params);
+    // });
+
+    this.ar.queryParams.subscribe((params) => {
+      const token = params['key1'];
+      console.log(token);
+      const key = this.cookieService.get('clientKey');
+      const bytes = CryptoJS.AES.decrypt(token, key);
+      const decrypted = bytes.toString(CryptoJS.enc.Utf8);
+
+      console.log('data2', decrypted);
+
+      // Use the values as needed
     });
   }
 
   get_bills() {
-    this.api.get_all_invoices().subscribe((data: any) => {
+    this.api.get_all_products_under_a_branch().subscribe((data: any) => {
       console.log(data);
       const modifiedData = this.transformData(data);
       this.mData = modifiedData;
@@ -80,9 +86,7 @@ export class View_Invoice_list implements OnInit {
     return modifiedData;
   }
 
-  make_data(data: any) {
-    this.dataSource.data = data;
-  }
+  make_data(data: any) {}
 
   applyFilter(ev: any) {
     console.log(ev);

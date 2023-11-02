@@ -4,6 +4,8 @@ import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap, shareReplay } from 'rxjs/operators';
 import { User } from './model';
+import { CookieService } from 'ngx-cookie-service';
+
 @Injectable({
   providedIn: 'root',
 })
@@ -11,10 +13,21 @@ export class ApiService {
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
   };
-
-  constructor(private http: HttpClient) {
+  private authToken = 'your-token-here';
+  constructor(
+    private http: HttpClient,
+    private cookieService: CookieService,
+  ) {
     // this.showModal = 'none';
     // this.displayModal = 'none';
+  }
+
+  private createHeaders(): HttpHeaders {
+    this.authToken = this.cookieService.get('clientId');
+    return new HttpHeaders({
+      'Content-Type': 'application/json', // Set the 'Content-Type' to JSON
+      Authorization: `${this.authToken}`, // Set the token in the 'Authorization' header
+    });
   }
 
   public user: User = {
@@ -38,11 +51,13 @@ export class ApiService {
   private cUrl = 'https://csweb.in/hb7-india-api/';
   private adminUrl = 'https://csweb.in/hb7-india-api/admin/';
 
+  private testurl = 'https://nxvgu-9001.csb.app/hb9-india-api';
+
   login(model: any) {
     let body = JSON.stringify(model);
     console.log(body);
     return this.http
-      .post(this.adminUrl + 'user_login', body, this.httpOptions)
+      .post(this.testurl + '/user_login', body, this.httpOptions)
       .pipe(
         catchError(
           this.handleError<any>('login', {
@@ -53,13 +68,12 @@ export class ApiService {
       );
   }
 
-  get_all_invoices(): Observable<any[]> {
-    const url = `${this.cUrl + 'get_all_invoices'}/${
-      this.user.org_branch.branch_id
-    }/${this.user.org_branch.fy_id}`;
+  get_all_products_under_a_branch(): Observable<any[]> {
+    const headers = this.createHeaders();
+    const url = `${this.testurl + '/admin/get_all_products_under_a_branch'}`;
     return this.http
-      .get<any>(url, this.httpOptions)
-      .pipe(catchError(this.handleError<any>('get_all_invoices')));
+      .get<any>(url, { headers })
+      .pipe(catchError(this.handleError<any>('get_all_products_under_a_branch')));
   }
 
   private handleError<T>(operation = 'operation', result?: T) {
