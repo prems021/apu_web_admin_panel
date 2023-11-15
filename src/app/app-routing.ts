@@ -4,15 +4,13 @@ import { NgxPermissionsGuard } from 'ngx-permissions';
 
 import { LoginComponent } from './pages/login/login';
 import { DashComponent } from './pages/dash/dash';
-import { New_Invoice } from './pages/invoice/new/new';
-// import { DashboardComponent } from './pages/dash/dash';
-// import { New_Invoice } from './pages/home/home';
+import { Invoice_print_a4_type_1 } from './pages/invoice/a4/type1/main';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/new-invoice', pathMatch: 'full' },
-  { path: 'new-invoice', component: New_Invoice },
+  { path: '', redirectTo: '/invoice-dash', pathMatch: 'full' },
+  { path: 'invoice-dash', component: DashComponent },
   { path: 'reprint/:uid', component: LoginComponent },
-  { path: '**', redirectTo: '/new-invoice' },
+  { path: '**', redirectTo: '/invoice-dash' },
 ];
 
 @NgModule({

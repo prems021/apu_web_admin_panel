@@ -15,3 +15,16 @@
 .spacer {
   flex: 1;
 }
+
+#printable {
+  display: none;
+}
+
+@media print {
+  #non-printable {
+    display: none;
+  }
+  #printable {
+    display: block;
+  }
+}

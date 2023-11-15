@@ -3,26 +3,31 @@ import {
   OnInit,
   Renderer2,
   ViewChild,
+  Input,
+  SimpleChanges,
   ChangeDetectorRef,
 } from '@angular/core';
-import { ApiService } from '../../../services/api.service';
+import { ApiService } from '../../../../services/api.service';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 import { Router, ActivatedRoute, ParamMap } from '@angular/router';
-import { view_invoices } from '../../../services/model';
+import { view_invoices } from '../../../../services/model';
 import * as CryptoJS from 'crypto-js';
-import { CookieService } from 'ngx-cookie-service';
 
 @Component({
-  selector: 'app-new-invoice',
-  templateUrl: './new.html',
-  styleUrls: ['./new.scss'],
+  selector: 'invoice_print_a4_type_1',
+  templateUrl: './main.html',
+  styleUrls: ['./main.scss'],
 })
-export class New_Invoice implements OnInit {
+export class Invoice_print_a4_type_1 implements OnInit {
   loaded: boolean = false;
   mData: view_invoices[] = [];
   filteredData: view_invoices[] = [];
   public selected = -1;
+  page_count: number = 1;
+
+  @Input('ia') len: number;
+  @Input('print') print: boolean;
 
   public Options = [
     { name: 'B2C', op: 2 },
@@ -30,44 +35,71 @@ export class New_Invoice implements OnInit {
   ];
 
   constructor(
-    private api: ApiService,
+    public api: ApiService,
     private rs: Router,
     private ar: ActivatedRoute,
     private cdr: ChangeDetectorRef,
-    private cookieService: CookieService,
   ) {}
 
   ngOnInit(): void {
-    this.get_bills();
-
+    //   this.get_bills();
     // this.ar.paramMap.subscribe((params: ParamMap) => {
     //   console.log(params);
     // });
+    // this.ar.queryParams.subscribe((params) => {
+    //   const token = params['key1'];
+    //   console.log(token);
+    // const bytes = CryptoJS.AES.decrypt(token, key);
+    // const decrypted = bytes.toString(CryptoJS.enc.Utf8);
+    // console.log('data2', decrypted);
+    // Use the values as needed
+    // });
+  }
+  fetchContent()
+  {
+    this.get_bills();
+  }
+  async ngOnChanges(changes: SimpleChanges) {
+    if (this.len > 21) {
+      console.log('prri..inside..', this.print);
+      this.page_count = 1;
 
-    this.ar.queryParams.subscribe((params) => {
-      const token = params['key1'];
-      console.log(token);
-      const key = this.cookieService.get('clientKey');
-      const bytes = CryptoJS.AES.decrypt(token, key);
-      const decrypted = bytes.toString(CryptoJS.enc.Utf8);
+      if (this.print == true) {
+        console.log('page..inside..', this.page_count);
 
-      console.log('data2', decrypted);
-
-      // Use the values as needed
-    });
+        setTimeout(() => {
+          console.log(' 1  .inside..', this.page_count);
+          window.print();
+          this.page_count = 2;
+        }, 400);
+        console.log('2  inside..', this.page_count);
+        setTimeout(() => {
+          console.log('3 .inside..', this.page_count);
+          window.print();
+        }, 800);
+        console.log('4..', this.page_count);
+      }
+    } else {
+      this.page_count = 1;
+      if (this.print == true) {
+        setTimeout(() => {
+          window.print();
+        }, 400);
+      }
+    }
   }
 
   get_bills() {
-    this.api.get_all_products_under_a_branch().subscribe((data: any) => {
-      console.log(data);
-      const modifiedData = this.transformData(data);
-      this.mData = modifiedData;
-      this.filteredData = [...this.mData];
-      // this.dataSource.data = modifiedData;
-      // this.dataSource.paginator = this.paginator;
-      // this.dataSource.sort = this.sort;
-      this.loaded = true;
-    });
+    // this.api.get_all_products_under_a_branch().subscribe((data: any) => {
+    //   console.log(data);
+    //   const modifiedData = this.transformData(data);
+    //   this.mData = modifiedData;
+    //   this.filteredData = [...this.mData];
+    // this.dataSource.data = modifiedData;
+    // this.dataSource.paginator = this.paginator;
+    // this.dataSource.sort = this.sort;
+    //   this.loaded = true;
+    // });
   }
 
   transformData(data: any): any[] {
