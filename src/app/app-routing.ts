@@ -7,10 +7,10 @@ import { DashComponent } from './pages/dash/dash';
 import { Invoice_print_a4_type_1 } from './pages/invoice/a4/type1/main';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/invoice-dash', pathMatch: 'full' },
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'invoice-dash', component: DashComponent },
-  { path: 'reprint/:uid', component: LoginComponent },
-  { path: '**', redirectTo: '/invoice-dash' },
+  { path: 'login', component: LoginComponent },
+  { path: '**', redirectTo: '/login' },
 ];
 
 @NgModule({

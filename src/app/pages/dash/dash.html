@@ -1,6 +1,6 @@
 
 <section id="non-printable"> 
-
+v.101
  <mat-toolbar color="primary">
 
   <span class="spacer"></span>
@@ -55,8 +55,9 @@
 
     <!-- Fourth Column - Print Button -->
     <div class="col-12">
-      <button style="background:seashell;width:100%"  mat-button color="primary" (click)="fetchContent()">Fetch</button>
-      <button style="background:seashell;width:100%"  mat-button color="primary" (click)="printContent()">Print</button>
+       <button *ngIf="this.print_status == 1"  style="background:seashell;width:100%"  mat-button color="primary" (click)="fetchContent()">Fetch</button>
+      <button *ngIf="this.print_status == 2 && this.print_button_view" style="background:seashell;width:100%"  mat-button color="primary" (click)="printContent()">Print</button> 
+       <button *ngIf="this.print_status == 2" style="background:seashell;width:100%"  mat-button color="primary" (click)="clearContent()">Clear</button> 
     </div>
   
   </div>
@@ -75,3 +76,4 @@
 
 <invoice_print_a4_type_1 [ia]="this.ia" [print]="this.print"  *ngIf="this.print_type == 'Type1' && this.print_size == 'a4'" id="printable"> </invoice_print_a4_type_1> 
 
+<invoice_print_a4_type_2 [ia]="this.ia" [print]="this.print"  *ngIf="this.print_type == 'Type2' && this.print_size == 'a4'" id="printable"> </invoice_print_a4_type_2> 

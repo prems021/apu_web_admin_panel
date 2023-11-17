@@ -28,7 +28,7 @@ export class DashComponent implements OnInit {
   modelTypes: string[] = ['Type1', 'Type2', 'Type3', 'Type4'];
   print_size: string = 'a4';
   print_type: string = 'Type1';
-  print: boolean = true;
+  print: boolean = false;
   dummyData: any[] = Array.from({ length: 10 }, (_, index) => index + 1);
   pro_np: number;
   ia: number = 0;
@@ -38,6 +38,8 @@ export class DashComponent implements OnInit {
   loop_var: number = 0;
   push_disabled_enter: number = 0;
   toogle_head_det: boolean = false;
+  print_status: number = 1;
+  print_button_view: boolean = false;
   ngOnInit(): void {
     this.ar.paramMap.subscribe((params: ParamMap) => {
       console.log(params);
@@ -54,7 +56,14 @@ export class DashComponent implements OnInit {
   }
 
   printContent(): void {
-    window.print();
+    this.print = true;
+    this.print_button_view = false;
+  }
+
+  clearContent(): void {
+    this.print_status = 1;
+    this.print = false;
+    this.print_button_view = true;
   }
 
   get_res_bil(data: any) {
@@ -101,7 +110,7 @@ export class DashComponent implements OnInit {
         let result = this.api.Company_dets.company_gstin.slice(0, 2);
         const msd = this.api.state_list.filter((xy) => xy.state_code == result);
         if (msd.length <= 0) {
-          alert('invalid Gst codes');
+          //   alert('invalid Gst codes');
         } else {
           this.api.state_code = msd[0].state_code;
           this.api.state_name = msd[0].state_name;
@@ -123,7 +132,7 @@ export class DashComponent implements OnInit {
         let result = this.api.Company_dets.company_gstin.slice(0, 2);
         const msd = this.api.state_list.filter((xy) => xy.state_code == result);
         if (msd.length <= 0) {
-          alert('invalid Gst codes');
+          // alert('invalid Gst codes');
         } else {
           this.api.state_code = msd[0].state_code;
           this.api.state_name = msd[0].state_name;
@@ -280,6 +289,9 @@ export class DashComponent implements OnInit {
       this.api.invo_head.balance_amt =
         this.api.invo_head.pre_cash_total - this.api.invo_head.grand_amt;
     }
+
+    this.print_status = 2;
+    this.print_button_view = true;
   }
 
   stack_push(

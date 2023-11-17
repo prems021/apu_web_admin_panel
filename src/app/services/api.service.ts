@@ -202,7 +202,7 @@ export class ApiService {
     let body = JSON.stringify(model);
     console.log(body);
     return this.http
-      .post(this.testurl + '/user_login', body, this.httpOptions)
+      .post(this.adminUrl + '/user_login', body, this.httpOptions)
       .pipe(
         catchError(
           this.handleError<any>('login', {

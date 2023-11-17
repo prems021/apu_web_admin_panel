@@ -13,3 +13,36 @@ body {
   --primary-background-color: #f2f2f2;
   --secondary-background-color: grey;
 }
+
+/* You can add global styles to this file, and also import other style files */
+
+.modal-dialog {
+  max-width: 620px;
+  margin: 1.75rem auto;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.toast-message {
+  color: #8f8f8f !important;
+}
+.toast-title {
+  color: purple !important;
+  font-size: 16px !important;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}

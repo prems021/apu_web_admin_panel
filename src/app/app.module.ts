@@ -37,6 +37,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { LoaderComponent } from './shared/loader/loader';
 import { Invoice_print_a4_type_1 } from './pages/invoice/a4/type1/main';
+import { Invoice_print_a4_type_2 } from './pages/invoice/a4/type2/main';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { Invoice_print_a4_type_1 } from './pages/invoice/a4/type1/main';
     LoaderComponent,
     DashComponent,
     Invoice_print_a4_type_1,
+    Invoice_print_a4_type_2,
   ],
   imports: [
     BrowserModule,

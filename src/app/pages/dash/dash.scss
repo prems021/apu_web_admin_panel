@@ -26,5 +26,6 @@
   }
   #printable {
     display: block;
+    transform: scale(1); /* Scale the content to 80% */
   }
 }
