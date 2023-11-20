@@ -11,6 +11,7 @@ import {
   company_dets,
   Hb_trans,
   Invoice_items,
+  items_tax,
 } from './model';
 
 @Injectable({
@@ -21,7 +22,7 @@ export class ApiService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
   };
   private authToken = 'your-token-here';
-  public invoice_id: number = 0;
+  public invoice_id: number = 24018;
   floor: number = 0;
   frac: number = 0;
   figure_grand: string = '';
@@ -32,6 +33,8 @@ export class ApiService {
   mrp_total: number = 0;
   public api_logo_url: string;
   public Invoice_items_ary: Invoice_items[] = [];
+
+  public Tax_info = new items_tax(1, []);
 
   public state_list: States[] = [
     { state_name: 'Jammu and Kashmir', state_code: '01', alpha_code: 'JK' },
@@ -228,6 +231,12 @@ export class ApiService {
     return this.http
       .get<any>(url, this.httpOptions)
       .pipe(catchError(this.handleError<any>('get_a_invoice_detail')));
+  }
+
+  push_tax_info()
+  {
+      this.Tax_info.item.push({ SI:1,QUANTITY:0,PRICE:null,TAX:null,NET_PRICE:null,NET_VALUE:null,CGST:null,SGST:null,KFC:null})
+
   }
 
   private handleError<T>(operation = 'operation', result?: T) {

@@ -40,6 +40,7 @@ export class DashComponent implements OnInit {
   toogle_head_det: boolean = false;
   print_status: number = 1;
   print_button_view: boolean = false;
+  pdt_tax_list_counter: number;
   ngOnInit(): void {
     this.ar.paramMap.subscribe((params: ParamMap) => {
       console.log(params);
@@ -292,6 +293,89 @@ export class DashComponent implements OnInit {
 
     this.print_status = 2;
     this.print_button_view = true;
+
+    this.Tax_info(this.api.Invoice_items_ary);
+  }
+
+  Tax_info(data: any) {
+    while (this.api.Tax_info.item.length > 0) {
+      this.api.Tax_info.item.pop();
+    }
+
+    this.pdt_tax_list_counter = 1;
+
+    for (var liss = 0; liss < data.length; liss++) {
+      if (liss == 0) {
+        // this.pdt_tax_list[0] = data.items[0].TAX
+        this.api.push_tax_info();
+        this.api.Tax_info.item[0].TAX = data[0].tax;
+        this.api.Tax_info.item[0].PRICE = data[0].rate;
+        this.api.Tax_info.item[0].NET_VALUE = data[0].rate * data[liss].qty;
+        this.api.Tax_info.item[0].CGST =
+          (this.api.Tax_info.item[0].NET_VALUE *
+            this.api.Tax_info.item[0].TAX) /
+          2 /
+          100;
+        this.api.Tax_info.item[0].SGST =
+          (this.api.Tax_info.item[0].NET_VALUE *
+            this.api.Tax_info.item[0].TAX) /
+          2 /
+          100;
+
+        // if(this.ds.Tax_info.item[0].TAX > 5 && this.ds.i_m.heads.TYPE_ === 'B2C')
+        // {
+        //   this.ds.Tax_info.item[0].KFC =  ( this.ds.Tax_info.item[0].NET_VALUE ) / 100;
+        // }
+      } else {
+        const in_tax = this.api.Tax_info.item.findIndex(
+          (xyu) => xyu.TAX == data[liss].tax,
+        );
+        if (in_tax < 0) {
+          this.api.push_tax_info();
+
+          this.api.Tax_info.item[this.pdt_tax_list_counter].TAX =
+            data[liss].tax;
+
+          this.api.Tax_info.item[this.pdt_tax_list_counter].PRICE =
+            data[liss].rate;
+
+          this.api.Tax_info.item[this.pdt_tax_list_counter].NET_VALUE =
+            data[liss].rate * data[liss].qty;
+
+          var temp_net_val = data[liss].rate * data[liss].qty;
+
+          this.api.Tax_info.item[this.pdt_tax_list_counter].CGST =
+            (temp_net_val * data[liss].tax) / 2 / 100;
+          this.api.Tax_info.item[this.pdt_tax_list_counter].SGST =
+            (temp_net_val * data[liss].tax) / 2 / 100;
+
+          // if(this.ds.Tax_info.item[this.pdt_tax_list_counter].TAX > 5 && this.ds.i_m.heads.TYPE_ === 'B2C')
+          // {
+          //   this.ds.Tax_info.item[this.pdt_tax_list_counter].KFC =  temp_net_val / 100;
+          // }
+
+          this.pdt_tax_list_counter = this.pdt_tax_list_counter + 1;
+        } else {
+          this.api.Tax_info.item[in_tax].NET_VALUE =
+            this.api.Tax_info.item[in_tax].NET_VALUE +
+            data[liss].rate * data[liss].qty;
+          this.api.Tax_info.item[in_tax].CGST =
+            (this.api.Tax_info.item[in_tax].NET_VALUE *
+              this.api.Tax_info.item[in_tax].TAX) /
+            2 /
+            100;
+          this.api.Tax_info.item[in_tax].SGST =
+            (this.api.Tax_info.item[in_tax].NET_VALUE *
+              this.api.Tax_info.item[in_tax].TAX) /
+            2 /
+            100;
+          // if(this.ds.Tax_info.item[in_tax].TAX > 5 && this.ds.i_m.heads.TYPE_ === 'B2C')
+          // {
+          //   this.ds.Tax_info.item[in_tax].KFC =   this.ds.Tax_info.item[in_tax].NET_VALUE  / 100;
+          // }
+        }
+      }
+    }
   }
 
   stack_push(
@@ -328,5 +412,9 @@ export class DashComponent implements OnInit {
       hsn_code: hsn,
       idx: idx,
     });
+  }
+
+  logout() {
+    this.router.navigate(['/login']);
   }
 }

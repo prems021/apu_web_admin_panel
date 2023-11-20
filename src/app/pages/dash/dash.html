@@ -11,7 +11,7 @@ v.101
   <button mat-icon-button>
     <mat-icon>notifications</mat-icon>
   </button>
-  <button mat-icon-button>
+  <button (click)=logout();  mat-icon-button>
     <mat-icon>account_circle</mat-icon>
   </button>
  
@@ -76,4 +76,4 @@ v.101
 
 <invoice_print_a4_type_1 [ia]="this.ia" [print]="this.print"  *ngIf="this.print_type == 'Type1' && this.print_size == 'a4'" id="printable"> </invoice_print_a4_type_1> 
 
-<invoice_print_a4_type_2 [ia]="this.ia" [print]="this.print"  *ngIf="this.print_type == 'Type2' && this.print_size == 'a4'" id="printable"> </invoice_print_a4_type_2> 
+<invoice_print_a4_type_2 [ia]="this.ia" [print]="this.print"  *ngIf="this.print_type == 'Type2' && this.print_size == 'a4'" > </invoice_print_a4_type_2> 

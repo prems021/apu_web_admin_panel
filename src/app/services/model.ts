@@ -27,11 +27,10 @@ export interface view_invoices {
   invoice_date: string;
 }
 
-export interface States 
-{
-  state_name :string;
-  state_code : string;
-  alpha_code : string;
+export interface States {
+  state_name: string;
+  state_code: string;
+  alpha_code: string;
 }
 
 export interface Invoice_head {
@@ -82,70 +81,87 @@ export interface Invoice_head {
   invoice_created_at: Date;
 }
 
+export interface company_dets {
+  company_address_1: string;
+  company_address_2: string;
+  company_email: string;
+  company_gstin: string;
+  company_name: string;
+  company_ph_1: string;
+  company_ph_2: string;
+  company_street: string;
+  company_bank_name: string;
+  company_bank_ac_no: string;
+  company_bank_branch_name: string;
+  company_bank_ifsc_code: string;
+  default_print_type: number;
+  default_print_type_80mm: number;
+  default_print_size: string;
+  default_invo_number_type: number;
+  createdAt: string;
+  updatedAt: string;
+  hb7_fy_strings: Hb7fystring[];
+}
 
-export interface company_dets
-  {
-    company_address_1: string,
-    company_address_2: string,
-    company_email: string,
-    company_gstin: string,
-    company_name: string,
-    company_ph_1: string,
-    company_ph_2: string,
-    company_street: string,
-    company_bank_name : string,
-    company_bank_ac_no : string,
-    company_bank_branch_name : string,
-    company_bank_ifsc_code : string,
-    default_print_type : number,
-    default_print_type_80mm : number,
-    default_print_size : string,
-    default_invo_number_type : number,
-    createdAt: string,
-    updatedAt: string,
-    hb7_fy_strings: Hb7fystring[]
-  }
+interface Hb7fystring {
+  id: number;
+  com_id: number;
+  fy_string: string;
+  is_default: boolean;
+}
 
-  interface Hb7fystring {
-    id: number;
-    com_id: number;
-    fy_string: string;
-    is_default: boolean;
-  }
-  
+export interface Hb_trans {
+  amount: number;
+  cast: string;
+  createdAt: string;
+  date: string;
+  deletedAt: string;
+  id: number;
+  is_bulk_pay: boolean;
+  master_id: number;
+  mode: string;
+  status: number;
+  type: string;
+  updatedAt: string;
+  serial_no: number;
+  ref_no: number;
+}
 
-  export interface Hb_trans {
-    amount: number;
-    cast: string;
-    createdAt: string;
-    date: string;
-    deletedAt: string;
-    id: number;
-    is_bulk_pay: boolean;
-    master_id: number;
-    mode: string;
-    status: number;
-    type: string;
-    updatedAt: string;
-    serial_no : number;
-    ref_no :number;
-  }
+export interface Invoice_items {
+  index_no: number;
+  master_id: number;
+  product_id: number;
+  batch_id: number;
+  rate: number;
+  qty: number;
+  free_qty: number;
+  mrp: number;
+  tax: number;
+  product_name: string;
+  unit: string;
+  value: number;
+  product_description: string;
+  hsn_code: string;
+  idx: number;
+}
 
-  export interface Invoice_items 
-{
-    index_no : number,
-    master_id : number
-    product_id :number ,
-    batch_id : number,
-    rate : number,
-    qty : number,
-    free_qty : number,
-    mrp : number,
-    tax : number,
-    product_name : string,
-    unit : string,
-    value : number,
-    product_description : string,
-    hsn_code : string,
-    idx : number
+export class items_tax {
+  constructor(
+    public si: number,
+    public item: sublist[],
+  ) {}
+}
+
+export class sublist {
+  constructor(
+    public SI: number,
+    public QUANTITY: number,
+    public TAX: number,
+    public NET_PRICE: number,
+    public NET_VALUE: number,
+    public CGST: number,
+    public SGST: number,
+    public KFC: number,
+    public PRICE: number,
+  ) {}
 }

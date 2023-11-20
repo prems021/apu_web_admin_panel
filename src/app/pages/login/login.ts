@@ -82,7 +82,7 @@ export class LoginComponent implements OnInit {
           'https://csweb.in/hb7-india-api/get_logo/' +
           this.api.invo_head.com_id.toLocaleString() +
           '_logo.jpg';
-        // console.log('api_logo', this.api.api_logo_url)
+        console.log('api_logo', this.api.api_logo_url);
         this.api.invo_head.fy_id =
           data.user.hb7_company_detail.hb7_fy_strings[0].id;
         this.api.invo_head.default_invo_number_type =
@@ -90,8 +90,8 @@ export class LoginComponent implements OnInit {
         //   console.log('fy-id',this.api.invo_head.fy_id)
 
         this.api.Company_dets = data.user.hb7_company_detail;
-        //console.log('comdet',this.api.Company_dets)
-        alert(data.msg + 'Hello ' + data.user.user_name);
+
+        //   alert(data.msg + 'Hello ' + data.user.user_name);
         this.router.navigate(['invoice-dash']);
       }
     } else {
