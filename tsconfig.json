@@ -3,7 +3,7 @@
   "compileOnSave": false,
   "compilerOptions": {
     "baseUrl": "./",
-    "outDir": "./dist/out-tsc",
+    "outDir": "./out/app",
     "forceConsistentCasingInFileNames": true,
     "strict": false,
     "noImplicitOverride": true,
