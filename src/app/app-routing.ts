@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { NgxPermissionsGuard } from 'ngx-permissions';
-
+import { LandingComponent } from './pages/Landing_page/main';
 import { LoginComponent } from './pages/login/login';
 import { DashComponent } from './pages/dash/dash';
-import { Invoice_print_a4_type_1 } from './pages/invoice/a4/type1/main';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'invoice-dash', component: DashComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'landing-page', component: LandingComponent },
   { path: '**', redirectTo: '/login' },
 ];
 

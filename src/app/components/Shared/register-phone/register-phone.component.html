@@ -1,0 +1,84 @@
+<app-header></app-header>
+
+<!-- form section -->
+
+<div class="login-form">
+    <form [formGroup]="registrationForm" *ngIf="!isvalidbuttonClicked">
+        <h1>Register</h1>
+
+        <div class="input-field">
+            <input type="text" formControlName="name" placeholder="Name">
+            <div *ngIf="registrationForm.get('name')?.hasError('required') && registrationForm.get('name').touched"
+                class="error-message text-danger">name is required.</div>
+        </div>
+        <div class="input-field">
+            <input formControlName="phone" inputmode="numeric" id="numberInput" type="number" placeholder="Phone Number"
+                autocomplete="nope">
+            <div *ngIf="registrationForm.get('phone')?.hasError('required') && registrationForm.get('phone').touched"
+                class="error-message text-danger">Phone Number is required.</div>
+            <div *ngIf="registrationForm.get('phone')?.hasError('pattern') && registrationForm.get('phone').touched"
+                class="error-message text-danger">Invalid phone number format.</div>
+        </div>
+        <div id="otp_val" class="additional-input" *ngIf="otpInputVisible">
+            <div class="input-field">
+                <input formControlName="otp" type="text" placeholder="Enter OTP" autocomplete="nope">
+            </div>
+        </div>
+        <div class="action">
+            <button id="backToLogin" routerLink="../UserLogin">Back to Login</button>
+
+
+            <button id="disable" class="btn" *ngIf="isvalidateButtonClicked" [disabled]="registrationForm.invalid"
+                (click)="toggleAdditionalInput()">Next</button>
+
+
+            <button id="disable" class="btn" (click)="otp_validate()" *ngIf="isNextButtonClicked "> validate otp
+            </button>
+
+            <button class="btn" *ngIf="generate_new_otp" (click)="resend_otp()"> Resent OTP </button>
+        </div>
+    </form>
+
+    <!-- password section -->
+
+    <form class="password_form" [formGroup]="password_form" *ngIf="isvalidbuttonClicked">
+
+        <h1>Create Your Password</h1>
+
+        <div class="input-field">
+
+            <label for="">Enter password</label>
+            <input formControlName="password" type="password" placeholder="Enter password">
+
+            <div class="text-danger" *ngIf="password_form.get('password').hasError('required') && password_form.get('password').touched">
+                Password is required.
+            </div>
+
+
+            <br>
+            <div class="text-danger" *ngIf="password_form.get('password').hasError('minlength') && password_form.get('password').touched">
+                Password must be exactly 8 characters.
+            </div>
+
+            <br>
+            <label for="">confirm password</label>
+            <input formControlName="confirmPassword" type="password" placeholder="confirm password">
+
+            <!-- Display validation error message -->
+            <div class="text-danger" *ngIf="password_form.hasError('passwordMismatch')">
+                Passwords do not match.
+            </div>
+<br>
+
+            <div class="action">
+                <button (click)="passwordConfirm()" style="background-color: #FF8E31; color: #fff; padding: 10px; " class="btn"
+                    [disabled]="password_form.invalid"> confirm </button>
+
+
+            </div>
+        </div>
+    </form>
+
+
+</div>
+

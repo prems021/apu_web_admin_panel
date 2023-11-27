@@ -1,0 +1,173 @@
+.login-form {
+    background: #fff;
+    width: 500px;
+    margin: 65px auto;
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+            flex-direction: column;
+    border-radius: 4px;
+    box-shadow: 0 2px 25px rgba(0, 0, 0, 0.2);
+    margin-top: 100px;
+  }
+  .login-form h1 {
+    padding: 35px 35px 0 35px;
+    font-weight: 300;
+    text-align: center;
+  }
+  .login-form .content {
+    padding: 35px;
+    text-align: center;
+    padding-top: 15px;
+  }
+  .login-form .input-field {
+    padding: 12px 5px;
+  }
+  .login-form .input-field input {
+    font-size: 16px;
+    display: block;
+    font-family: 'Rubik', sans-serif;
+    width: 100%;
+    padding: 10px 1px;
+    border: 0;
+    border-bottom: 1px solid #FF8E31;
+    outline: none;
+    -webkit-transition: all .2s;
+    transition: all .2s;
+  }
+  .login-form .input-field input::-webkit-input-placeholder {
+    text-transform: uppercase;
+  }
+  .login-form .input-field input::-moz-placeholder {
+    text-transform: uppercase;
+  }
+  .login-form .input-field input:-ms-input-placeholder {
+    text-transform: uppercase;
+  }
+  .login-form .input-field input::-ms-input-placeholder {
+    text-transform: uppercase;
+  }
+  .login-form .input-field input::placeholder {
+    text-transform: uppercase;
+  }
+  .login-form .input-field input:focus {
+    border-color: #222;
+  }
+  .login-form a.link {
+    text-decoration: none;
+    color: #747474;
+    letter-spacing: 0.2px;
+    text-transform: uppercase;
+    display: inline-block;
+    margin-top: 20px;
+  }
+  .login-form .action {
+    display: -webkit-box;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+            flex-direction: row;
+  }
+  .login-form .action button {
+    width: 100%;
+    border: none;
+    padding: 18px;
+    font-family: 'Rubik', sans-serif;
+    cursor: pointer;
+    text-transform: uppercase;
+    background: #fff;
+    color: black;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 0;
+    letter-spacing: 0.2px;
+    outline: 0;
+    -webkit-transition: all .3s;
+    transition: all .3s;
+  }
+  .login-form .action button:hover {
+    background: #d8d8d8;
+  }
+  .login-form .action button:nth-child(2) {
+    background: #FF8E31;
+    color: white;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 4px;
+  }
+  .login-form .action button:nth-child(2):hover {
+    background: #fff;
+    color: black;
+  }
+
+  //social section
+
+  .social{
+    text-align: center;
+    margin-top: 20px;
+  }
+  .Google{
+    border: 2px solid #d8d8d8;
+    background-color: white;
+    border-radius: 15px;
+    text-align: center;
+    height: 50px;
+    width: 200px;
+    background: linear-gradient(#FF8E31 0 0) var(--p,0%) / var(--p,0%) no-repeat;
+    transition: .4s,background-position 0s;  
+  }
+
+  .Google:hover{
+    --p: 100%;
+  }
+  .Google img{
+    width: 15px;
+    height: 15px;
+    margin-left: 5px;
+    margin-right: 10px;
+  }
+  .micro{
+    border: 2px solid #d8d8d8;
+    background-color: white;
+    border-radius: 15px;
+    margin-left: 10px;
+    height: 50px;
+    width: 200px;
+    background: linear-gradient(#FF8E31 0 0) left / var(--p,0) no-repeat;
+    transition: .4s,background-position 0s;    ;
+  }
+.micro:hover{
+  --p: 100%;
+  background-position: right;
+
+}
+  .micro img{
+    width: 15px;
+    height: 15px;
+    margin-left: 5px;
+    margin-right: 10px;
+  }
+
+  hr{
+    border: 1px solid #222;
+    width: 190px;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 25px;
+  }
+  .hr{
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+  }
+
+  // .hover-1 {
+  //   background: linear-gradient(#1095c1 0 0) var(--p,0%) / var(--p,0%) no-repeat;
+  //   transition: .4s,background-position 0s;
+  // }
+  // .hover-1.alt {
+  //   background: linear-gradient(#1095c1 0 0) calc(100% - var(--p,0%)) / var(--p,0%) no-repeat;
+  // }
+  // .hover-1:hover {
+  //   --p: 100%;
+  // }

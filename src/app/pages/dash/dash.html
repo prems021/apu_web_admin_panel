@@ -23,42 +23,14 @@ v.101
 <div class="container" style="margin-top:50px;">
 
   <div class="row">
-    <!-- First Column - UID Input -->
-    <div class="col-12 col-lg-4">
-      <mat-form-field appearance="outline" style="width:100%">
-        <mat-label>UID</mat-label>
-        <input [(ngModel)]="this.api.invoice_id" matInput placeholder="Enter UID">
-      </mat-form-field>
-    </div>
-    <div class="col-12 col-lg-4">
-      <mat-form-field appearance="outline" style="width:100%">
-        <mat-label>Paper Type</mat-label>
-        <mat-select [(ngModel)]="this.print_size">
-          <mat-option value="a4">A4</mat-option>
-          <mat-option value="a5">A5</mat-option>
-          <mat-option value="80mm">80mm</mat-option>
-        </mat-select>
-      </mat-form-field>
-    </div>
+  
+   
+hi
+ 
+   
 
-    <!-- Third Column - Model Type Select -->
-    <div class="col-12 col-lg-4">
-      <mat-form-field appearance="outline" style="width:100%">
-        <mat-label>Model Type</mat-label>
-        <mat-select [(ngModel)]="this.print_type">
-          <mat-option *ngFor="let modelType of modelTypes" [value]="modelType">
-            {{ modelType }}
-          </mat-option>
-        </mat-select>
-      </mat-form-field>
-    </div>
-
-    <!-- Fourth Column - Print Button -->
-    <div class="col-12">
-       <button *ngIf="this.print_status == 1"  style="background:seashell;width:100%"  mat-button color="primary" (click)="fetchContent()">Fetch</button>
-      <button *ngIf="this.print_status == 2 && this.print_button_view" style="background:seashell;width:100%"  mat-button color="primary" (click)="printContent()">Print</button> 
-       <button *ngIf="this.print_status == 2" style="background:seashell;width:100%"  mat-button color="primary" (click)="clearContent()">Clear</button> 
-    </div>
+  
+ 
   
   </div>
 
@@ -73,7 +45,3 @@ v.101
 
 
 
-
-<invoice_print_a4_type_1 [ia]="this.ia" [print]="this.print"  *ngIf="this.print_type == 'Type1' && this.print_size == 'a4'" id="printable"> </invoice_print_a4_type_1> 
-
-<invoice_print_a4_type_2 [ia]="this.ia" [print]="this.print"  *ngIf="this.print_type == 'Type2' && this.print_size == 'a4'" > </invoice_print_a4_type_2> 

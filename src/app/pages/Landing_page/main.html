@@ -1,0 +1,345 @@
+
+
+
+<!-- <section id="non-printable"> 
+ 
+Landing Page   v.101
+     <mat-toolbar color="primary">
+    
+      <span class="spacer"></span>
+      <button mat-icon-button> 
+        <mat-icon>home</mat-icon>
+      </button>
+    
+      <button mat-icon-button>
+        <mat-icon>notifications</mat-icon>
+      </button>
+      <button (click)=logout();  mat-icon-button>
+        <mat-icon>account_circle</mat-icon>
+      </button>
+     
+    </mat-toolbar> -->
+
+
+    <!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="#">Access Point Utalization  v.101 </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link" routerLink="../Userinterface">Home <i class="fa-solid fa-house"></i></a>
+        </li>
+        <li class="nav-item" *ngxPermissionsOnly="['User']">
+          <a  class="nav-link" routerLink="../UserRegister" >Update Your Profile <i class="fa-solid fa-pen-to-square"></i></a>
+        </li>
+        <li class="nav-item" *ngxPermissionsOnly="['Agency']">
+          <a  class="nav-link" routerLink="../UserRegister" >Edit Profile <i class="fa-solid fa-pen-to-square"></i></a>
+        </li>
+
+        <li class="nav-item" *ngxPermissionsOnly="['Agency']">
+          <a class="nav-link" routerLink="../Agency_settings" >Agency <i class="fa-solid fa-gear"></i></a>
+        </li>
+        <li class="nav-item" *ngxPermissionsOnly="['User']">
+          <a class="nav-link" data-bs-toggle="modal"data-bs-target="#exampleModal">Register Agency</a>
+        </li>
+        <li class="nav-item" *ngxPermissionsOnly="['Update_user']">
+          <a class="nav-link" routerLink="../AgencyRegister">Register Agency</a>
+        </li>
+
+
+        <li class="nav-item">
+          <a class="nav-link" >Services</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" >About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" (click)="logout()">Log Out <i class="fa-solid fa-right-from-bracket"></i></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<header class="hero text-white text-center py-5">
+  <div class="container">
+    <h1 class="display-4">Welcome to APU</h1>
+    <p class="lead">We provide innovative solutions for your business</p>
+    <a routerLink="/service-caed" class="btn btn-light btn-lg">Get Started</a>
+  </div>
+</header>
+
+
+<!-- Services Section -->
+<section *ngxPermissionsOnly="['User']" id="services" class="bg-light py-5">
+  <div class="container">
+    <h2 class="text-center">Our Services</h2>
+    <div style="display: inline-flex; justify-content: center;" class="row text-center">
+      <div style="width: 220px; height: 220px; margin: 50px;" class="card1 col-md-3 col-sm-6 col-lg-3">
+          <img src="data:image/jpeg;base64,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" class="card-img-top" alt="Service 1">
+          <div class="card-body">
+            <h4 class="card-title">Photo</h4>
+            <p class="card-text">Description of Service 1.</p>
+          </div>
+        
+      </div>
+      <div style="width: 220px; height: 220px; margin: 50px;"  class="card1 col-md-3 col-sm-6 col-lg-3">
+          <img src="https://img.freepik.com/premium-photo/scissors-blonde-hair-white-background-hair-care-cut-hairdressing-salon_285484-1485.jpg?w=2000" class="card-img-top" alt="Service 2">
+          <div class="card-body">
+            <h4 class="card-title">Saloon</h4>
+            <p class="card-text">Description of Service 2.</p>
+          </div>
+        
+      </div>
+      <div style="width: 220px; height: 220px; margin: 50px;"  class="card1 col-md-3 col-sm-6 col-lg-3">
+          <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/c59510a7-ebc6-4309-8ab6-176537281719/dc2ywuu-c5ab7211-38bd-45f1-8fdd-e849f25bdc1b.png/v1/fill/w_900,h_561,q_80,strp/cafe_background_by_xibxib_dc2ywuu-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NTYxIiwicGF0aCI6IlwvZlwvYzU5NTEwYTctZWJjNi00MzA5LThhYjYtMTc2NTM3MjgxNzE5XC9kYzJ5d3V1LWM1YWI3MjExLTM4YmQtNDVmMS04ZmRkLWU4NDlmMjViZGMxYi5wbmciLCJ3aWR0aCI6Ijw9OTAwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.-OOSgkpu7Wv-zSUr1u6ZRZwXMTLfnm8rFiAWBF1tysE" class="card-img-top" alt="Service 3">
+          <div class="card-body">
+            <h4 class="card-title">cafe</h4>
+            <p class="card-text">Description of Service 3.</p>
+          </div>
+      
+      </div>
+      <div style="width: 220px; height: 220px; margin: 50px;"  class="card1 col-md-3 col-sm-6 col-lg-3">
+          <img src="https://www.kingarthurbaking.com/sites/default/files/inline-images/cafe.jpg" class="card-img-top" alt="Service 4">
+          <div class="card-body">
+            <h4 class="card-title">Resturant</h4>
+            <p class="card-text">Description of Service 4.</p>
+          </div>
+        
+      </div>
+    </div>
+  </div>
+</section>
+
+<section *ngxPermissionsOnly="['Agency']" id="services" class="bg-light py-5">
+  <div class="container">
+    <h2 class="text-center">Select Your option</h2>
+    <div style="display: inline-flex; justify-content: center;" class="row text-center">
+      <div style="width: 220px; height: 220px; margin: 50px;" class="card1 col-md-3 col-sm-6 col-lg-3">
+        <img routerLink="../Agency_settings" src="https://static1.anpoimages.com/wordpress/wp-content/uploads/2022/07/googleMapsTricksHero.jpg" class="card-img-top" alt="">
+          <div class="card-body">
+            <h4 class="card-title">Location Slect</h4>
+          </div>
+        
+      </div>
+      <div style="width: 220px; height: 220px; margin: 50px;"  class="card1 col-md-3 col-sm-6 col-lg-3">
+          <img routerLink="../Agencydetails" src="https://icons.iconarchive.com/icons/dtafalonso/android-l/512/Settings-L-icon.png" class="card-img-top" alt="Service 2">
+          <div class="card-body">
+            <h4 class="card-title">Service Select</h4>
+          </div>
+        
+      </div>
+      <div style="width: 220px; height: 220px; margin: 50px;"  class="card1 col-md-3 col-sm-6 col-lg-3">
+        <img routerLink="../slot_booking" src="https://images.unsplash.com/photo-1559891272-8a206fbc5c0e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dGltZSUyMGNsb2NrfGVufDB8fDB8fHww&w=1000&q=80" class="card-img-top" alt="">
+          <div  class="card-body">
+            <h4 class="card-title">Select Your Time settings</h4>
+          </div>
+      
+      </div>
+      <div style="width: 220px; height: 220px; margin: 50px;"  class="card1 col-md-3 col-sm-6 col-lg-3">
+          <img routerLink="../Agencyaccess" src="https://c8.alamy.com/comp/2C3M01G/people-use-devices-laptop-tablet-smartphone-work-by-access-internet-modern-flat-cartoon-style-vector-illustration-2C3M01G.jpg" class="card-img-top" alt="Service 4">
+          <div class="card-body">
+            <h4 class="card-title">Access Point</h4>
+          </div>
+        
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<br><br>
+<br>
+<br>
+<br>
+
+
+
+<!-- card section -->
+
+<div *ngxPermissionsOnly="['User']">
+  <section class="service-card" id="service-caed">
+    <div class="container">
+      <h2 class="text-center">Our Agents</h2>
+  
+      <div class="card mb-3" style="max-width: 100%;">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img src="https://images.unsplash.com/photo-1502982720700-bfff97f2ecac?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fGNhbWVyYXxlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80" class="img-fluid rounded-start" alt="...">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">AP studios</h5>
+              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="card mb-3" style="max-width: 100%;">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img src="https://media.gq-magazine.co.uk/photos/5d1394d8003d75d5a9ae5f58/16:9/w_2580,c_limit/barber-gq-17jan19-b.jpg" class="img-fluid rounded-start" alt="...">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">Apk Saloon</h5>
+              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            </div>
+          </div>
+        </div>
+      </div>   
+      <div class="card mb-3" style="max-width: 100%;">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img src="https://5.imimg.com/data5/SELLER/Default/2021/12/FP/JJ/DC/51665645/internet-cafe-shop-interior-designing-service-500x500.jpg" class="img-fluid rounded-start" alt="...">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">APKK cafe</h5>
+              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            </div>
+          </div>
+        </div>
+      </div>   
+      <div class="card mb-3" style="max-width: 100%;">
+        <div class="row g-0">
+          <div class="col-md-4">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQGWbQCOT0VlzXbmpIbQ-_iUJaWpZf7mnJvw&usqp=CAU" class="img-fluid rounded-start" alt="...">
+          </div>
+          <div class="col-md-8">
+            <div class="card-body">
+              <h5 class="card-title">AWK Resturant</h5>
+              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+            </div>
+          </div>
+        </div>
+      </div>   
+  
+     </div>
+  </section>
+
+  
+<div class="modalbtn">
+    <button *ngIf="Agencycomplite" type="button" class="btn" data-bs-toggle="modal"data-bs-target="#exampleModal">
+      Add Your Agency 
+    </button>
+
+    <button *ngIf="!Agencycomplite" type="button" class="btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+      Agency Page 
+    </button>
+
+  
+</div>
+
+  <br><br><br><br><br>
+  
+  <!-- About Section -->
+  <section id="about" class="py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6">
+          <h2>About Us</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam venenatis mi id ullamcorper ultrices.</p>
+        </div>
+        <div class="col-lg-6">
+          <img src="https://rezdy.com//wp-content/uploads/2018/05/Blog-Photos-24.png" alt="">
+        </div>
+      </div>
+    </div>
+  </section>
+  
+
+</div>  
+
+
+
+
+
+
+<!-- Footer -->
+<footer class="footer bg-dark text-white mt-5">
+  <div class="container">
+      <div class="row">
+          <div class="col-md-4">
+              <h4>About Us</h4>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          </div>
+          <div class="col-md-4">
+              <h4>Contact Us</h4>
+              <p>Email: info@example.com<br>Phone: (123) 456-7890</p>
+          </div>
+          <div class="col-md-4">
+              <h4>Follow Us</h4>
+              <ul class="list-inline social-icons">
+                  <li class="list-inline-item"><a href="#"><i class="fab fa-facebook-f"></i></a></li>
+                  <li class="list-inline-item"><a href="#"><i class="fab fa-twitter"></i></a></li>
+                  <li class="list-inline-item"><a href="#"><i class="fab fa-instagram"></i></a></li>
+              </ul>
+          </div>
+      </div>
+      <hr class="my-4">
+      <p class="text-center">© 2023 Your Company. All rights reserved.</p>
+  </div>
+</footer>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h1 class="modal-title fs-5 text-center" id="staticBackdropLabel">Agency Add</h1>
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="modal-body">
+
+      <p style="color: green;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem molestias adipisci exercitationem totam accusamus ab,
+         ipsa, aut consequatur minus recusandae repudiandae doloremque voluptatum similique commodi. Impedit aliquid iste quos magni.
+        </p>
+
+        <h4>Add Your Agency in APU</h4>
+
+        <hr>
+
+        <br>
+<div class="btn-agency">
+            <button class="button"  data-bs-dismiss="modal"  >register</button>
+
+</div>      </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- next moal for update -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLabel">Please update your profile before add your agency <br>
+        <i class="fa-solid fa-triangle-exclamation" style="color: red; font-size: 50px; margin-left: 193px;"></i></h5>
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    </div>
+    <div class="modal-body">
+      ...
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+      <button  data-bs-dismiss="modal" type="button" class="btn" style="background: #f39c12; color: #fff;" routerLink="../UserRegister">Update</button>
+    </div>
+  </div>
+</div>
+</div>

@@ -1,0 +1,45 @@
+.bg-image {
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAASwAAACoCAMAAABt9SM9AAAAA1BMVEX/fwCxRWwOAAAAR0lEQVR4nO3BAQEAAACCIP+vbkhAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAO8GxYgAAb0jQ/cAAAAASUVORK5CYII=');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: white;
+  padding: 100px 0;
+}
+
+.navbar {
+  background-color: #ff8e31;
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+.navbar-nav .nav-link {
+  color: #fff;
+}
+#navbarNav{
+  justify-content: end;
+}
+#navbarNav:hover{
+  color: #f39c12;
+}
+table {
+  border-collapse: collapse;
+  width: 80%;
+  margin: 20px auto;
+}
+
+// 
+/* Style the dropdown container */
+label{
+  font-size: 25px;
+  color: #ff8e31;
+  font-weight: 500;
+  
+
+}
+
+
+// ff8e31

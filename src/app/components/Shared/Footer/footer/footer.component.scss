@@ -1,0 +1,54 @@
+.footer {
+    background-color: black;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  p {
+    margin: 0;
+  }
+// 
+.social-icons {
+    margin-top: 10px;
+  }
+  
+  .social-icons a {
+    font-size: 24px;
+    margin: 0 10px;
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .social-icons a:hover {
+    color: #FF8E31; /* Change color on hover */
+  }
+// 
+.contact-info {
+    margin-top: 10px;
+    color: #fff;
+  }
+  
+  .contact-info p {
+    margin: 5px 0;
+  }
+  
+  .contact-info i {
+    margin-right: 5px;
+  }
+  .contact-info a{
+    color: #FF8E31;
+  }
+// 
+.logo img {
+    width: 150px; /* Adjust the width as needed */
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+  

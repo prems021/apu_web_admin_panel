@@ -1,0 +1,91 @@
+// nav
+.navbar {
+  background-color: #ff8e31;
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+.navbar-nav .nav-link {
+  color: #fff;
+}
+#navbarNav{
+  justify-content: end;
+}
+#navbarNav:hover{
+  color: #f39c12;
+}
+
+
+
+.heading{
+    padding-top: 22px;
+    color: #ff8e31;
+}
+.Services{
+    border: 1px solid #ff8e31;
+}
+.Services ul li{
+    text-align: center;
+    text-decoration: none;
+    list-style: none;
+    text-align-last: start;
+    font-weight: 500;
+    margin-top: 25px;
+}
+
+
+
+.location  ul  li{
+    font-size: 18px;
+    text-align: center;
+    text-decoration: none;
+    list-style: none;
+    text-align-last: start;
+    font-weight: 500;
+    margin-top: 25px;
+}
+
+.example-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .example-full-width {
+    width: 100%;
+  }
+
+//   table
+table {
+    border-collapse: collapse;
+    width: 80%;
+    margin: 20px auto;
+  }
+  
+  /* Style table header */
+  th {
+    background-color: #ff8e31;
+    color: white;
+    text-align: left;
+    padding: 10px;
+  }
+  
+  /* Style table rows */
+  tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  tr:nth-child(odd) {
+    background-color: #fff;
+  }
+  
+  /* Style table cells */
+  td {
+    padding: 10px;
+    border: 1px solid #ccc;
+    color: green;
+  }  
+  

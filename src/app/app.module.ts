@@ -32,12 +32,11 @@ import { LoginComponent } from './pages/login/login';
 import { ToastrModule } from 'ngx-toastr';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { DashComponent } from './pages/dash/dash';
+import { LandingComponent } from './pages/Landing_page/main';
 
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatSortModule } from '@angular/material/sort';
 import { LoaderComponent } from './shared/loader/loader';
-import { Invoice_print_a4_type_1 } from './pages/invoice/a4/type1/main';
-import { Invoice_print_a4_type_2 } from './pages/invoice/a4/type2/main';
 
 @NgModule({
   declarations: [
@@ -45,8 +44,7 @@ import { Invoice_print_a4_type_2 } from './pages/invoice/a4/type2/main';
     LoginComponent,
     LoaderComponent,
     DashComponent,
-    Invoice_print_a4_type_1,
-    Invoice_print_a4_type_2,
+    LandingComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,46 @@
+.navbar {
+    background-color: #ff8e31;
+  }
+  
+  .navbar-brand {
+    font-size: 1.5rem;
+    color: #fff;
+  }
+  
+  .navbar-nav .nav-link {
+    color: #fff;
+  }
+  #navbarNav{
+    justify-content: end;
+  }
+  #navbarNav:hover{
+    color: #f39c12;
+  }
+  table {
+    border-collapse: collapse;
+    width: 80%;
+    margin: 20px auto;
+  }
+  
+  // 
+  /* Style the dropdown container */
+  label{
+    font-size: 15px;
+    font-weight: 500;
+    color: black;
+  }
+  .form-section{
+    background: lightgray;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+  }
+  .form-section form{
+    padding: 10px;
+  }
+  h5{
+    font-size: 20px;
+
+  }
+  div.autocomplete-dropdown-container {
+    z-index: 15000 !important;
+  }

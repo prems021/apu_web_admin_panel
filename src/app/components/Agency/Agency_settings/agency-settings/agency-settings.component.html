@@ -1,0 +1,95 @@
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light top-fixed">
+  <div class="container">
+    <a class="navbar-brand" href="#">Access Point Utalization</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active" *ngxPermissionsOnly="['Agency']">
+          <a class="nav-link" routerLink="../Dashboard">Dashboard <i class="fa-solid fa-house"></i></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="container" >
+  
+<div style="display: inline-flex;" class="form-search mt-5">
+  <form  class="example-form">
+    <mat-form-field class="example-full-width">
+      <mat-label>Location</mat-label>
+      <input type="text"  matInput [formControl]="myControl" [matAutocomplete]="auto"/>
+      <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+        <mat-option *ngFor="let option of filteredOptions | async" [value]="option"  (onSelectionChange)="onOptionSelected(option)">
+          {{option.code}} -- {{option.name}} 
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+  </form>  
+
+<div>
+    <button *ngIf="locationbutton.legth=='0'" style="height: 57px; margin-left: 10px; color: #fff;" class="btn btn-dark" (click)="update_location()" > set Primary location </button>
+    <button *ngIf="locationbutton"  style="height: 57px; margin-left: 10px;  color: #fff;" class="btn btn-danger" (click)="nearby_location()"  > set Nearby location </button>
+  
+</div>
+</div>  
+
+
+<!-- table  -->
+<table >
+  <!-- *ngFor="let primarylocation of primary_location" -->
+  <thead  >
+    <thead *ngFor="let locationset of primary_location" >
+      <tr *ngIf="locationset.Type=='Primary'">
+        <th style="background: green;">Primary Location :</th>
+        <th style="background: green;"> <i class="fa-solid fa-location-dot"></i> {{locationset.Location_name}}</th>
+        <th style="background: green;">{{locationset.Location_code}}</th>
+      </tr>
+    </thead>
+    <br>
+    <tr>
+      <th>Nearby Location <i class="fa-solid fa-location-crosshairs"></i></th>
+      <th>Id</th>
+      <th>Code</th>
+    </tr>
+  </thead>
+  <tbody *ngFor="let nearby of primary_location">
+    <tr *ngIf="nearby.Type=='Nearby'">
+      <td><i class="fa-solid fa-location-dot"></i> {{nearby.Location_name}}</td>
+      <td>{{nearby.id}}</td>
+      <td>{{nearby.Location_code}}</td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+
+
+
+
+
+<!-- <div  *ngFor="let servicelist of servicelist">
+    <div >
+        <ul>
+            <li>{{servicelist.name}}</li>
+
+            <p>{{servicelist.description}}</p>
+
+            <button class="btn btn-success">sub service</button>
+
+          </ul>   
+<div *ngIf="allsubservice">
+                <ul *ngFor="let servicelist of servicelist.subServices">
+                    <li>{{servicelist.name}}</li>
+                </ul>
+ </div>
+ </div>
+ </div>
+ -->
+
+

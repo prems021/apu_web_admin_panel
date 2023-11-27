@@ -1,0 +1,131 @@
+<br>
+<div class="form-container">
+    <h2>Agency Registration</h2>
+    <form [formGroup]="Agency_register" (ngSubmit)="register()">   
+      <div class="form-group">
+        <label for="name">Agency Name</label>
+        <input formControlName="name" type="text" id="name" name="name" required>
+        <div class="text-danger" *ngIf="Agency_register.get('name')?.hasError('required') && Agency_register.get('name').touched">
+          Agency Name is required.
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input formControlName="email" type="email" id="email" name="email" required>
+        <div class="text-danger" *ngIf="Agency_register.get('email')?.hasError('required') && Agency_register.get('email').touched">
+          Email is required.
+        </div>
+        <div class="text-danger" *ngIf="Agency_register.get('email')?.hasError('email') && Agency_register.get('email').touched">
+          Please enter a valid email address.
+        </div>
+      </div>
+      
+
+      <!-- <div class="form-group">
+        <label for="phone">Phone Number</label>
+        <input formControlName="phone" type="tel" id="phone" name="phone" required>
+        <div *ngIf="Agency_register.get('phone')?.hasError('required') && Agency_register.get('phone').touched">
+          Phone Number is required.
+        </div>
+      </div> -->
+            <div class="form-group">
+        <label for="location">State</label>
+        <select formControlName="state" id="State" name="state" required>
+            <option value="">Select State</option>
+            <option value="Andhra Pradesh">Andhra Pradesh</option>
+            <option value="Arunachal Pradesh">Arunachal Pradesh</option>
+            <option value="Assam">Assam</option>
+            <option value="Bihar">Bihar</option>
+            <option value="Chhattisgarh">Chhattisgarh</option>
+            <option value="Goa">Goa</option>
+            <option value="Gujarat">Gujarat</option>
+            <option value="Haryana">Haryana</option>
+            <option value="Himachal Pradesh">Himachal Pradesh</option>
+            <option value="Jharkhand">Jharkhand</option>
+            <option value="Karnataka">Karnataka</option>
+            <option value="Kerala">Kerala</option>
+            <option value="Madhya Pradesh">Madhya Pradesh</option>
+            <option value="Maharashtra">Maharashtra</option>
+            <option value="Manipur">Manipur</option>
+            <option value="Meghalaya">Meghalaya</option>
+            <option value="Mizoram">Mizoram</option>
+            <option value="Nagaland">Nagaland</option>
+            <option value="Odisha">Odisha</option>
+            <option value="Punjab">Punjab</option>
+            <option value="Rajasthan">Rajasthan</option>
+            <option value="Sikkim">Sikkim</option>
+            <option value="Tamil Nadu">Tamil Nadu</option>
+            <option value="Telangana">Telangana</option>
+            <option value="Tripura">Tripura</option>
+            <option value="Uttar Pradesh">Uttar Pradesh</option>
+            <option value="Uttarakhand">Uttarakhand</option>
+            <option value="West Bengal">West Bengal</option>
+            <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
+            <option value="Chandigarh">Chandigarh</option>
+            <option value="Dadra and Nagar Haveli and Daman and Diu">Dadra and Nagar Haveli and Daman and Diu</option>
+            <option value="Lakshadweep">Lakshadweep</option>
+            <option value="Delhi">Delhi</option>
+            <option value="Puducherry">Puducherry</option>
+        </select>
+        <div class="text-danger" *ngIf="Agency_register.get('state')?.hasError('required') && Agency_register.get('state').touched">
+          State is required.
+        </div>
+    </div>
+          <div class="form-group">
+        <label for="district">District</label>
+        <select formControlName="district" id="district" name="district" required>
+          <option value="">Select district</option>
+          <option value="Thiruvananthapuram">Thiruvananthapuram</option>
+          <option value="Kollam">Kollam</option>
+          <option value="Pathanamthitta">Pathanamthitta</option>
+          <option value="Alappuzha">Alappuzha</option>
+          <option value="Kottayam">Kottayam</option>
+          <option value="Idukki">Idukki</option>
+          <option value="Ernakulam">Ernakulam</option>
+          <option value="Thrissur">Thrissur</option>
+          <option value="Palakkad">Palakkad</option>
+          <option value="Malappuram">Malappuram</option>
+          <option value="Kozhikode">Kozhikode</option>
+          <option value="Wayanad">Wayanad</option>
+          <option value="Kannur">Kannur</option>
+          <option value="Kasaragod">Kasaragod</option>   
+          </select>
+          <div class="text-danger" *ngIf="Agency_register.get('district')?.hasError('required') && Agency_register.get('district').touched">
+            district is required.
+          </div>
+      </div>
+
+      <div class="form-group">
+        <label for="pincode">Pin Code</label>
+        <input formControlName="pin_code" type="text" id="pincode" name="pincode" required>
+        <div class="text-danger" *ngIf="Agency_register.get('pin_code').hasError('required') && Agency_register.get('pin_code').touched">
+          Pin Code is required.
+        </div>
+      </div>
+
+            <div class="form-group">
+        <label for="agencyType">Agency Type</label>
+        <select formControlName="agencytype" id="agencyType" name="agencyType" required>
+          <option value="">Select Agency Type</option>
+          <option value="advertising">Advertising</option>
+          <option value="marketing">Marketing</option>
+          <option value="digital">Digital</option>
+          <option value="publicRelations">Public Relations</option>
+        </select>
+        <div class="text-danger" *ngIf="Agency_register.get('agencyType')?.hasError('required') && Agency_register.get('agencyType').touched">
+          agencyType is required.
+        </div>
+
+      </div>
+      <div class="form-group">
+        <label for="gst_no">GST Number</label>
+        <input formControlName="gst_no" type="text" id="GST" name="GST" >
+      </div>
+
+      <div class="form-group">
+        <button class="btn" [disabled]="Agency_register.invalid">Confirm</button>
+      </div>
+    </form>
+  </div>
+
+  

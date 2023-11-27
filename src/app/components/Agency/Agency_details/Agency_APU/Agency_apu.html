@@ -1,0 +1,110 @@
+<div>
+  <nav class="navbar navbar-expand-lg navbar-light top-fixed">
+    <div class="container">
+      <a class="navbar-brand" href="#">Access Point Utalization</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item active">
+            <a class="nav-link" routerLink="../Agencydetails">Services</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container-fluid mt-4">
+
+    <div class="row">
+      <div class="col-4">
+        <h5 class="text-center">Add Your Access point</h5>
+        <br>
+        <div class="form-section">
+          <form [formGroup]="accessForm">
+            <div class="form-group">
+              <label for="accessName">Access Name:</label>
+              <input formControlName="accessName" type="text" class="form-control mt-2" id="accessName"
+                placeholder="Enter Access Name">
+            </div>
+            <div class="form-group">
+              <label for="description">Description:</label>
+              <textarea formControlName="description" class="form-control mt-2" id="description" rows="5"
+                placeholder="Enter Description"></textarea>
+            </div>
+            <div class="text-center">
+              <button [disabled]="accessForm.invalid" (click)="addAccess()" type="submit"
+                class="btn btn-primary mt-3">Add Acccess</button>
+            </div>
+          </form>
+
+        </div>
+      </div>
+
+      <div class="col-8">
+        <h5 class="text-center">Access point List</h5>
+        <br>
+        <table class="table table-sm table-warning">
+          <thead>
+            <tr>
+              <th scope="col">Access_name</th>
+              <th scope="col">Description</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let list of apu_list">
+            <tr>
+              <td>{{list.Apu_name}}</td>
+              <td style="width: 300pxpx;">{{list.Description}}</td>
+              <td>
+
+                <button mat-button (click)="openDialog()">Open dialog</button>
+
+
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  
+  
+  <!-- Copyright 2023 Google LLC. All Rights Reserved.
+      Use of this source code is governed by an MIT-style license that
+      can be found in the LICENSE file at https://angular.io/license -->
+
+
+</div>
+
+
+
+
+
+
+
+<!-- Button trigger modal -->
+
+               <!-- <table class="table table-sm table-success">
+          <thead>
+            <tr>
+              <th scope="col">Subservice_name</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let list of sub_service_list">
+            <tr>
+              <td>{{list.Service_name}}</td>
+
+              <td>
+              <td>  <button type="button" class="btn btn-success" data-toggle="modal" data-target="#exampleModalCenter1">
+                  Add 
+                </button>
+              <td>
+              </td>
+            </tr>
+          </tbody>
+        </table> -->

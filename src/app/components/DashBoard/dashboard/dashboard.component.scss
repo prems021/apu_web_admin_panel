@@ -1,0 +1,181 @@
+.navbar {
+    background-color: #ff8e31;
+  }
+  
+  .navbar-brand {
+    font-size: 1.5rem;
+    color: #fff;
+  }
+  
+  .navbar-nav .nav-link {
+    color: #fff;
+  }
+  #navbarNav{
+    justify-content: end;
+  }
+  #navbarNav:hover{
+    color: #f39c12;
+  }
+  
+  /* Hero Section Styles */
+  .hero {
+    background-color:#ff8e31;
+  }
+  
+  .hero h1 {
+    font-size: 3rem;
+  }
+  
+  .hero p {
+    font-size: 1.2rem;
+  }
+  
+  /* About Section Styles */
+  #about {
+    background-color: #f8f9fa;
+    padding: 50px 0;
+    text-align: center;
+  }
+  #about img{
+    width: 100%;
+  }
+  
+  #about h2 {
+    margin-bottom: 30px;
+  }
+  
+  /* Add this to your existing CSS */
+  
+  /* Services Section Styles */
+  #services {
+    padding: 50px 0;
+    text-align: center;
+  }
+  
+  #services img{
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    margin-bottom: 1 rem;
+    cursor: pointer;
+  }
+  
+  
+  
+  #services h2 {
+    margin-bottom: 30px;
+    font-family: 'Russo One', sans-serif;}
+  
+  
+  
+  .card-title {
+    font-size: 1.5rem;
+    margin-top: 10px;
+    color: #ff8e31;
+  }
+  
+  .card-text {
+    font-size: 1.1rem;
+  }
+  
+  .card1 {
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .card1:hover {
+    transform: scale(1.05);
+  }
+  
+  
+  // card section 2
+  
+  .card2{
+    width: 100%;
+  }
+  
+  .service-card h2{
+    margin-bottom: 30px;
+    font-family: 'Russo One', sans-serif;
+  }
+  
+  .card img{
+    width: 100%;
+    height: 200px;
+  }
+  
+  .card {
+    transition: transform 0.3s ease-in-out;
+    margin-top: 50px;
+    cursor: pointer;
+  }
+  
+  .card:hover {
+    transform: scale(1.09);
+    box-shadow: 0 0 11px #ff8e31; 
+  
+  }
+  
+  
+  
+  
+  /* Footer Styles */
+  .footer {
+    padding-top: 40px;
+    padding-bottom: 20px;
+  }
+  
+  .footer h4 {
+    color: #f39c12;
+  }
+  
+  .social-icons a {
+    color: #fff;
+    font-size: 20px;
+    margin-right: 15px;
+  }
+  .social-icons a:hover {
+    color: #f39c12;
+  }
+  
+
+
+
+
+
+  // modal
+
+.modalbtn{
+  
+  text-align: center;
+  margin-top: 10px;
+}
+.modalbtn button{
+  width: 250px;
+  height: 60px;
+  margin-top: 10px;
+  background-color: #ff8e31;
+  color: #fff;
+  font-weight: 700;
+}
+  
+.btn-agency{
+  text-align: center;
+}
+
+
+.button{
+  width: 200px;
+  height: 50px;
+  border: 1px solid #f39c12;
+  border-radius: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #ff8e31;
+  color: #fff;
+  margin: 10px;
+}
+
+h4{
+  text-align: center;
+  font-weight: 400;
+}

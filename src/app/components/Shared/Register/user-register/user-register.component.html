@@ -1,0 +1,21 @@
+
+<div class="login-form">
+    <form [formGroup]="update_form">
+      <h1>update</h1>
+      <div>
+      </div>
+     <div class="content">
+        <div class="input-field">
+          <input formControlName="name" type="text" placeholder="name" autocomplete="nope">
+        </div>
+        <div class="input-field">
+          <input formControlName="email" type="email" placeholder="email" >
+        </div>
+      </div>
+      <div class="action">
+        <button >back</button>
+        <button class="btn" (click)="update()">update</button>
+       
+      </div>
+    </form>
+  </div>
