@@ -32,7 +32,6 @@ export class ApiService {
   total_qty: number = 0;
   mrp_total: number = 0;
   public api_logo_url: string;
-  public Invoice_items_ary: Invoice_items[] = [];
 
   public Tax_info = new items_tax(1, []);
 
@@ -233,10 +232,18 @@ export class ApiService {
       .pipe(catchError(this.handleError<any>('get_a_invoice_detail')));
   }
 
-  push_tax_info()
-  {
-      this.Tax_info.item.push({ SI:1,QUANTITY:0,PRICE:null,TAX:null,NET_PRICE:null,NET_VALUE:null,CGST:null,SGST:null,KFC:null})
-
+  push_tax_info() {
+    this.Tax_info.item.push({
+      SI: 1,
+      QUANTITY: 0,
+      PRICE: null,
+      TAX: null,
+      NET_PRICE: null,
+      NET_VALUE: null,
+      CGST: null,
+      SGST: null,
+      KFC: null,
+    });
   }
 
   private handleError<T>(operation = 'operation', result?: T) {
